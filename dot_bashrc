@@ -1,0 +1,80 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+source /usr/share/nvm/init-nvm.sh
+
+set -o vi
+bind -m vi-insert "\C-l":clear-screen
+#bind -m vi-insert "\C-a":beginning-of-line
+#bind -m vi-insert "\C-e":end-of-line
+
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+export EDITOR='nvim'
+export VISUAL='nvim'
+
+export HISTSIZE=100000
+
+alias tree='tree --gitignore'
+alias ls='ls --color=auto'
+alias grep='grep --color'
+
+function __ps1_gitbranch {
+  if [[ -z "$(git branch --show-current 2>/dev/null)" ]]; then
+    PS1_CMD=""
+  else
+    PS1_CMD=" -> $(git branch --show-current 2>/dev/null)"
+  fi
+}
+
+PROMPT_COMMAND='__ps1_gitbranch'
+
+PS1='\u@\h \[\e[94m\e[1m\][\W\[\e[93m\]${PS1_CMD}\[\e[94m\]] \[\e[0m\]\$ '
+
+alias less='less -Qr'
+alias man='man -P "less -Qr"'
+
+alias ..='cd ..'
+
+alias pacman='sudo pacman'
+alias update='yay -Syu'
+alias mount='sudo mount'
+alias umount='sudo umount'
+alias service='sudo systemctl'
+alias vim='nvim'
+alias dotfiles='/usr/bin/git --git-dir=/home/andre/.dotfiles --work-tree=/home/andre'
+
+alias cdvim='cd /home/andre/.config/nvim'
+alias cfkit='vim /home/andre/.config/kitty/kitty.conf'
+alias retail='sudo systemctl restart tailscaled'
+
+export WDIR='/home/andre/Projects/clone-tabnews'
+export TDIR='/home/andre/Projects/TecNot/repos/doimaker'
+alias wd='cd $WDIR'
+alias td='cd $TDIR'
+
+function compvid() {
+  ffmpeg -i "$1" -c:v libx265 -crf 28 -c:a aac -strict experimental -b:a 96k compressed.mp4
+}
+#alias startx='startx -- -keeptty &> ~/.log/xorg'
+
+#. $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/completions/asdf.bash
+
+if [[ $DISPLAY ]]; then
+	# If not running interactively, do not do anything
+	[[ $- != *i* ]] && return
+	if [[ -z "$TMUX" ]]; then
+		ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of the dettached session
+		if [[ -z "$ID" ]]; then # if not available, create a new one
+			tmux new-session
+		else
+			tmux attach-session -t "$ID" # if available, attach to it
+		fi
+  fi
+fi
+

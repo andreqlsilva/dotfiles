@@ -1,0 +1,19 @@
+#
+# ~/.bash_profile
+#
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]] ; then
+    startx
+else
+    [[ $- != *i* ]] && return
+    if [[ -z "$TMUX" ]] ; then
+        ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" #get the id of the attached session
+        if [[ -z "$ID" ]] ; then
+            tmux new-session
+        else
+            tmux attach-session -t "$ID" # if available, attach to it
+        fi
+    fi
+fi
