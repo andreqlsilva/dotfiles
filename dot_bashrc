@@ -50,7 +50,7 @@ alias vim='nvim'
 
 function chezconf() {
   currentDdir=$(pwd)
-  nvim "$1" && chezmoi add "$1"
+  nvim "$1" && chezmoi add "$1" && chezmoi apply
 }
 
 function rebar() {
