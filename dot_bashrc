@@ -53,9 +53,7 @@ function dotpush() {
 }
 
 function chezconf() {
-  currentDir=$(pwd)
   chezmoi edit "$1" && chezmoi add "$1" && dotpush
-  cd "$currentDir"
 }
 
 function rebar() {
