@@ -63,6 +63,7 @@ alias cfhyp='chezconf /home/andre/.config/hypr/hyprland.conf'
 alias cfbar='chezconf /home/andre/.config/waybar/config.jsonc && rebar'
 alias cdvim='cd /home/andre/.config/nvim'
 alias retail='sudo systemctl restart tailscaled'
+alias tailstat='systemctl status tailscaled'
 
 export WDIR='/home/andre/Projects/clone-tabnews'
 export TDIR='/home/andre/Projects/TecNot/repos/doimaker'
