@@ -53,7 +53,7 @@ function dotpush() {
 }
 
 function chezconf() {
-  nvim "$1" && chezmoi add "$1" && dotpush
+  chezmoi edit "$1" && chezmoi add "$1" && dotpush
 }
 
 function rebar() {
