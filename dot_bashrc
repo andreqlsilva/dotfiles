@@ -48,10 +48,6 @@ alias service='sudo systemctl'
 alias vim='nvim'
 #alias dotfiles='/usr/bin/git --git-dir=/home/andre/.dotfiles --work-tree=/home/andre'
 
-function dotpush() {
-#  chezmoi cd && git add . && git commit -m "Update dotfiles" && git push
-}
-
 function chezconf() {
   currentDdir=$(pwd)
   nvim "$1" && chezmoi add "$1" && cd "$currentDir"
