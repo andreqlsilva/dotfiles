@@ -49,7 +49,7 @@ alias vim='nvim'
 #alias dotfiles='/usr/bin/git --git-dir=/home/andre/.dotfiles --work-tree=/home/andre'
 
 function dotpush() {
-  chezmoi cd && git add . && git commit -m "Update dotfiles" && git push
+#  chezmoi cd && git add . && git commit -m "Update dotfiles" && git push
 }
 
 function chezconf() {
