@@ -49,7 +49,11 @@ alias vim='nvim'
 alias dotfiles='/usr/bin/git --git-dir=/home/andre/.dotfiles --work-tree=/home/andre'
 
 alias cdvim='cd /home/andre/.config/nvim'
-alias cfkit='vim /home/andre/.config/kitty/kitty.conf'
+alias cfbash='nvim /home/andre/.bashrc && source /home/andre/.bashrc && chezmoi add /home/andre/.bashrc'
+alias cfkit='nvim /home/andre/.config/kitty/kitty.conf'
+alias cfhypr='nvim /home/andre/.config/hypr/hyprland.conf'
+alias cfbar='nvim /home/andre/.config/waybar/config.jsonc && pkill waybar && hyprctl dispatch exec waybar'
+alias rebar='pkill waybar; hyprctl dispatch exec waybar'
 alias retail='sudo systemctl restart tailscaled'
 
 export WDIR='/home/andre/Projects/clone-tabnews'
