@@ -52,7 +52,9 @@ function chezconf() {
 }
 
 function chezstat() {
-  chezmoi cd && git status && cd $HOME
+  chezmoi cd;
+  git status;
+  cd $HOME
 }
 
 function rebar() {
