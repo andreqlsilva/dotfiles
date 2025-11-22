@@ -55,21 +55,18 @@ function chezstat() {
   chezmoi cd && echo $(git status); cd $HOME
 }
 
-function rebar() {
-  pkill waybar;
-  hyprctl dispatch exec waybar
-}
-
 function wallpaper() {
   hyprctl hyprpaper preload "$1"
   hyprctl hyprpaper wallpaper ,"$1"
 
 }
 
+alias chezstat='chezmoi cd && echo $(git status); cd $HOME'
 alias cfbash='chezconf $HOME/.bashrc; source $HOME/.bashrc'
 alias cfkit='chezconf $HOME/.config/kitty/kitty.conf'
 alias cfhyp='chezconf $HOME/.config/hypr/hyprland.conf'
 alias cfbar='chezconf $HOME/.config/waybar/config.jsonc && rebar'
+alias rebar='pkill waybar; hyprctl dispatch exec waybar'
 alias cfpaper='chezconf $HOME/.config/hypr/hyprpaper.conf'
 alias cflock='chezconf $HOME/.config/hypr/hyprlock.conf'
 alias cdvim='cd $HOME/.config/nvim'
