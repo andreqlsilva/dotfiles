@@ -48,7 +48,7 @@ alias service='sudo systemctl'
 alias vim='nvim'
 
 function chezconf() {
-  nvim "$1" && chezmoi add "$1" 2>/dev/null
+  nvim "$1" && chezmoi add "$1" 
 }
 
 function chezstat() {
