@@ -57,7 +57,7 @@ function wallpaper() {
 
 }
 
-alias chezstat='chezmoi cd; echo $(git status); cd $HOME'
+alias chezstat='cd $HOME/.local/share/chezmoi && echo $(git status); cd $HOME'
 alias cfbash='chezconf $HOME/.bashrc; source $HOME/.bashrc'
 alias cfkit='chezconf $HOME/.config/kitty/kitty.conf'
 alias cfhyp='chezconf $HOME/.config/hypr/hyprland.conf'
