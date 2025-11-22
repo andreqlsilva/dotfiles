@@ -52,7 +52,7 @@ function chezconf() {
 }
 
 function chezstat() {
-  chezmoi cd && echo $(pwd)
+  echo $(pwd); chezmoi cd && echo $(pwd)
 }
 
 function wallpaper() {
