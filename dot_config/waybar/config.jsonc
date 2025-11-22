@@ -213,7 +213,7 @@
       "menu-actions": {
         "suspend": "systemctl suspend",
         "reboot": "reboot",
-        "shutdown": "shutdown",
+        "shutdown": "poweroff",
       }
     }
 }
