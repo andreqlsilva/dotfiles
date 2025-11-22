@@ -46,7 +46,6 @@ alias mount='sudo mount'
 alias umount='sudo umount'
 alias service='sudo systemctl'
 alias vim='nvim'
-#alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 function chezconf() {
   nvim "$1" && chezmoi add "$1" 2>/dev/null
@@ -82,9 +81,6 @@ function compvid() {
     ffmpeg -i "$1" -c:v libx265 -crf 28 -c:a aac -strict experimental -b:a 96k "$2"
 }
 #alias startx='startx -- -keeptty &> ~/.log/xorg'
-
-#. $HOME/.asdf/asdf.sh
-#. $HOME/.asdf/completions/asdf.bash
 
 if [[ $DISPLAY ]]; then
 	# If not running interactively, do not do anything
