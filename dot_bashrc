@@ -51,8 +51,8 @@ function chezconf() {
   nvim "$1" && chezmoi add "$1" 2>/dev/null
 }
 
-function chezstat() {
-  echo $(pwd)
+function chezstatus() {
+  chezmoi cd; git status; cd $HOME
 }
 
 function wallpaper() {
