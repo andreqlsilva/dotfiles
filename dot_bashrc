@@ -49,7 +49,7 @@ alias vim='nvim'
 #alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 function chezconf() {
-  nvim "$1" && chezmoi add "$1"
+  nvim "$1" && chezmoi add "$1" 2>/dev/null
 }
 
 function rebar() {
