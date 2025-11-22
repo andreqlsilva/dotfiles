@@ -63,7 +63,7 @@ function wallpaper() {
 
 }
 
-alias cfbash='chezconf $HOME/.bashrc'
+alias cfbash='chezconf $HOME/.bashrc; source $HOME/.bashrc'
 alias cfkit='chezconf $HOME/.config/kitty/kitty.conf'
 alias cfhyp='chezconf $HOME/.config/hypr/hyprland.conf'
 alias cfbar='chezconf $HOME/.config/waybar/config.jsonc && rebar'
