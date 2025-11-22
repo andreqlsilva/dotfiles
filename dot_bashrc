@@ -51,6 +51,10 @@ function chezconf() {
   nvim "$1" && chezmoi add "$1" 2>/dev/null
 }
 
+function chezstat() {
+  (chezmoi cd && git status)
+}
+
 function rebar() {
   pkill waybar;
   hyprctl dispatch exec waybar
