@@ -48,11 +48,11 @@ alias service='sudo systemctl'
 alias vim='nvim'
 
 function chezconf() {
-  nvim "$1" && chezmoi add "$1" 
+  nvim "$1" && chezmoi add "$1" 2>/dev/null
 }
 
 function chezstat() {
-  chezmoi cd && echo $(git status); cd $HOME
+  chezmoi cd && echo $(pwd)
 }
 
 function wallpaper() {
