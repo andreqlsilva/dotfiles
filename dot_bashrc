@@ -51,17 +51,13 @@ function chezconf() {
   nvim "$1" && chezmoi add "$1" 2>/dev/null
 }
 
-function chezstatus() {
-  chezmoi cd; git status; cd $HOME
-}
-
 function wallpaper() {
   hyprctl hyprpaper preload "$1"
   hyprctl hyprpaper wallpaper ,"$1"
 
 }
 
-alias chezstat='chezmoi cd && echo $(git status); cd $HOME'
+#alias chezstat='chezmoi cd && echo $(git status); cd $HOME'
 alias cfbash='chezconf $HOME/.bashrc; source $HOME/.bashrc'
 alias cfkit='chezconf $HOME/.config/kitty/kitty.conf'
 alias cfhyp='chezconf $HOME/.config/hypr/hyprland.conf'
