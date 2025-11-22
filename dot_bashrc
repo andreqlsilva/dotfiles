@@ -57,6 +57,12 @@ function rebar() {
   hyprctl dispatch exec waybar
 }
 
+function wallpaper() {
+  hyprctl hyprpaper preload "$1"
+  hyprctl hyprpaper wallpaper ,"$1"
+
+}
+
 alias cfbash='chezconf /home/andre/.bashrc'
 alias cfkit='chezconf /home/andre/.config/kitty/kitty.conf'
 alias cfhyp='chezconf /home/andre/.config/hypr/hyprland.conf'
