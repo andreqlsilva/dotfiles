@@ -5,6 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+eval $(keychain --eval --quiet id_ed25519 id_rsa)
 #source /usr/share/nvm/init-nvm.sh
 
 set -o vi
