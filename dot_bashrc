@@ -46,6 +46,7 @@ alias update='yay -Syu'
 alias mount='sudo mount'
 alias umount='sudo umount'
 alias service='sudo systemctl'
+alias uservice='systemctl --user'
 alias vim='nvim'
 
 function chezconf() {
