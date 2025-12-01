@@ -72,10 +72,10 @@ alias cdvim='cd $HOME/.config/nvim'
 alias retail='sudo systemctl restart tailscaled'
 alias tailstat='systemctl status tailscaled'
 
-export WDIR='$HOME/projects/clone-tabnews'
-export TDIR='$HOME/projects/doimaker'
-alias wd='cd $WDIR'
-alias td='cd $TDIR'
+export WDIR="$HOME/projects/clone-tabnews"
+export TDIR="$HOME/projects/doimaker"
+alias wd="cd $WDIR"
+alias td="cd $TDIR"
 
 function compvid() {
     ffmpeg -i "$1" -c:v libx265 -crf 28 -c:a aac -strict experimental -b:a 96k "$2"
