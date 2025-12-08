@@ -88,6 +88,7 @@ if [[ $DISPLAY ]]; then
 	[[ $- != *i* ]] && return
 	if [[ -z "$TMUX" ]]; then
     tmux attach-session || tmux new-session
+  fi
 #		ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of the dettached session
 #		if [[ -z "$ID" ]]; then # if not available, create a new one
 #			tmux new-session
