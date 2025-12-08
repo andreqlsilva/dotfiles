@@ -87,7 +87,7 @@ if [[ $DISPLAY ]]; then
 	# If not running interactively, do not do anything
 	[[ $- != *i* ]] && return
 	if [[ -z "$TMUX" ]]; then
-		ID="$( tmux ls | grep -m1 attached | cut -d: -f1 )" # get the id of the dettached session
+		ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of the dettached session
 		if [[ -z "$ID" ]]; then # if not available, create a new one
 			tmux new-session
 		else
