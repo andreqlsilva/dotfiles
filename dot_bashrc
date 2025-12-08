@@ -80,6 +80,7 @@ alias td="cd $TDIR"
 function compvid() {
     ffmpeg -i "$1" -c:v libx265 -crf 28 -c:a aac -strict experimental -b:a 96k "$2"
 }
+
 #alias startx='startx -- -keeptty &> ~/.log/xorg'
 
 if [[ $DISPLAY ]]; then
