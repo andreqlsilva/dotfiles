@@ -82,7 +82,7 @@
       "tooltip-format": "{ifname} via {gwaddr}"
     },
     "bluetooth": {
-      "format": "",
+      "format": " ",
       "format-disabled": "󰂲", // Icon for Bluetooth off
       "format-connected": " {device_battery_percentage}%",
       "tooltip-format": "{num_connections} connected",
