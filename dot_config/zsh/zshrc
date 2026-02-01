@@ -117,7 +117,8 @@ alias chezstat='cd $HOME/.local/share/chezmoi && git status; cd $HOME'
 alias cfzsh='chezconf $ZDOTDIR/zshrc; source $ZDOTDIR/zshrc'
 alias rebar='killall waybar; waybar &'
 alias cfbar='chezconf $HOME/.config/waybar/config && rebar'
-alias cflab='chezconf $HOME/.config/labwc/rc.xml'
+alias relab='labwc --reconfigure'
+alias cfwm='chezconf $HOME/.config/labwc/rc.xml && relab'
 alias cdvim='cd $HOME/.config/nvim'
 
 
