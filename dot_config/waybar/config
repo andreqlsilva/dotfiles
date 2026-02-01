@@ -78,7 +78,7 @@
       "format-ethernet": "🖧 Eth",
       "format-linked": "  Connecting...",
       "format-disconnected": "󰤮 Offline",
-      "on-click": "foot --title='wifi-tui' -e impala",
+      "on-click": "foot --app-id='popup-tui' --title='wifi-tui' -e impala",
       "tooltip-format": "{ifname} via {gwaddr}"
     },
     "battery": {
