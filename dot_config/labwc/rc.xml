@@ -19,9 +19,15 @@
     <windowRule identifier="foot" serverSideDecoration="yes">
       <action name="Maximize" />
     </windowRule>
-  </windowRules>
+    <windowRule title="nmtui">
+      <action name="MoveToCenter" />
+      <action name="Resize" width="600" height="400" />
+      <action name="SnapToEdge" edge="top" />
+    </windowRule>
+  </windowRule>
+</windowRules>
 
-  <keyboard>
+<keyboard>
     <layout>
       <main>us</main>
       <variant>intl</variant>
