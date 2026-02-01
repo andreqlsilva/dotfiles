@@ -1,4 +1,6 @@
 # ~/.zprofile
+export XKB_DEFAULT_LAYOUT=us
+export XKB_DEFAULT_VARIANT=intl
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
