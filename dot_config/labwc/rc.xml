@@ -38,7 +38,7 @@
       <action name="Execute" command="sh -c $HOME/.local/bin/powermenu" />
     </keybind>
     <keybind key="W-space">
-      <action name="Execute" command="foot -e tmux" />
+      <action name="Execute" command="foot -e tmux attach-session" />
     </keybind>
     <keybind key="W-t">
       <action name="Execute" command="foot" />
