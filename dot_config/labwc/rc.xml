@@ -19,6 +19,9 @@
     <windowRule server="max-app" serverSideDecoration="yes">
       <action name="Maximized" value="yes" />
     </windowRule>
+    <windowRule title="foot" serverSideDecoration="yes">
+      <action name="Maximize" />
+    </windowRule>
     <windowRule server="popup-tui">
       <action name="Maximized" value="no" />
       <action name="MoveToCenter" />
