@@ -115,7 +115,7 @@ function chezconf() {
 # Chezmoi & Configs (Updated for Labwc)
 alias chezstat='cd $HOME/.local/share/chezmoi && git status; cd $HOME'
 alias cfzsh='chezconf $ZDOTDIR/zshrc; source $ZDOTDIR/zshrc'
-alias rebar='pkill waybar; labwc --cmd "Execute waybar"' # Labwc way to restart
+alias rebar='pkill waybar; waybar &&' # Labwc way to restart
 alias cfbar='chezconf $HOME/.config/waybar/config && rebar'
 alias cflab='chezconf $HOME/.config/labwc/rc.xml'
 alias cdvim='cd $HOME/.config/nvim'
