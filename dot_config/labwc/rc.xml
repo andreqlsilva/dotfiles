@@ -16,7 +16,7 @@
   </desktops>
 
   <windowRules>
-    <windowRule identifier="foot" serverSideDecoration="yes">
+    <windowRule title="foot" serverSideDecoration="yes">
       <action name="Maximize" />
     </windowRule>
     <windowRule title="wifi-tui">
