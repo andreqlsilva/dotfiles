@@ -16,10 +16,10 @@
   </desktops>
 
   <windowRules>
-    <windowRule server="max-app" serverSideDecoration="yes">
+    <windowRule server="max-app">
       <action name="Maximized" value="yes" />
     </windowRule>
-    <windowRule title="foot" serverSideDecoration="yes">
+    <windowRule title="foot">
       <action name="Maximize" />
     </windowRule>
     <windowRule server="popup-tui">
