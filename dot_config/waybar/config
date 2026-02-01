@@ -1,0 +1,90 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 4,
+
+    // The Layout
+    "modules-left": ["custom/launcher", "tray", "wlr/workspaces", "wlr/taskbar"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/cpu", "custom/gpu", "network", "pulseaudio", "battery", "custom/power"],
+
+    // 1. The Corner (Start Menu) -> Launches Fuzzel
+    "custom/launcher": {
+        "format": "  ",
+        "on-click": "fuzzel",
+        "tooltip": false
+    },
+
+    // 2. Workspaces (The Stable Version)
+    "wlr/workspaces": {
+        "on-click": "activate",
+        "format": "{name}",
+        "all-outputs": true
+    },
+    
+    // 3. Taskbar (Open Windows)
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "icon-size": 14,
+        "tooltip-format": "{title}"
+    },
+
+    // 4. Power Button -> Locks screen
+    "custom/power": {
+        "format": "⏻ ",
+        "tooltip": false,
+	"menu": "on-click",
+	"menu-file": "$HOME/.config/waybar/power_menu.xml",
+	"menu-actions": {
+          "lock": "swaylock -f -c 000000",
+	  "suspend": "systemctl suspend",
+	  "reboot": "reboot",
+	  "shutdown": "poweroff",
+	  "exit": "labwc -e"
+	}
+    },
+
+    // System Modules
+    "custom/cpu": {
+      "exec": "$HOME/.local/bin/cpuload",
+      "return-type": "json",
+      "interval": 5,
+      "format": "{}",
+      "tooltip": true
+    },
+    "custom/gpu": {
+      "exec": "$HOME/.local/bin/gpuload",
+      "return-type": "json",
+      "interval": 10,
+      "format": "{}",
+      "tooltip": true
+    },
+    "clock": {
+      "format": "{:%a %d %b  %H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
+    },
+    "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-muted": "🔇 Muted",
+      "format-icons": {
+        "default": ["", "", ""]
+      },
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    "network": {
+      "format-wifi": "  {signalStrength}%",
+      "format-ethernet": "🔌 Eth",
+      "tooltip-format": "{ifname} via {gwaddr}"
+    },
+    "battery": {
+      "states": { "warning": 30, "critical": 15 },
+      "format": "{icon} {capacity}%",
+      "format-icons": ["", "", "", "", ""]
+    },
+    "tray": {
+      "spacing": 10
+    }
+}
+

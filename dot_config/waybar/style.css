@@ -1,0 +1,94 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: #1a1b26; /* Dark theme */
+  color: #c0caf5;
+}
+
+/* The "Corner" Button */
+#custom-launcher {
+  background-color: #7aa2f7; /* Blue */
+  color: #1a1b26;
+  padding: 0 15px;
+  margin-right: 10px;
+  border-radius: 0 0 15px 0; /* Cool corner effect */
+}
+
+/* Workspaces */
+#workspaces button {
+  padding: 0 10px;
+  background: transparent;
+  color: #565f89;
+}
+#workspaces button.active {
+  color: #c0caf5;
+  background: #24283b;
+  border-bottom: 2px solid #7aa2f7;
+}
+
+/* System Modules */
+#clock, #battery, #network, #pulseaudio, #tray, #custom-power {
+  padding: 0 10px;
+  background-color: transparent;
+}
+
+#clock {
+  color: #DDDDDD;
+}
+
+#battery {
+  color: #DADE12;
+}
+
+#battery.charging, #battery.plugged {
+  color: #9ece6a;
+}
+
+#battery.critical {
+  color: #f7768e;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#network {
+  color: #6a99fd;
+}
+
+#pulseaudio {
+  color: #BEBFBB;
+}
+
+#custom-power {
+  color: #f7768e; /* Red for danger */
+  padding-right: 15px;
+}
+
+#custom-cpu, #custom-gpu {
+  border-radius: 10px;
+  padding: 0 12px;
+  margin: 4px 2px;
+}
+
+#custom-cpu {
+/*  color: #0F8FD9; */
+  color: #F2BF57;
+}
+
+#custom-gpu {
+  color: #0FD985;
+/*  color: #BF616A;*/
+}
+
+/* Optional: Make the text glow slightly if it gets hot */
+#custom-cpu.critical, #custom-gpu.critical {
+  color: #BF616A; /* Nordic Red */
+}
+

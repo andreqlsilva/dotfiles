@@ -1,0 +1,136 @@
+<labwc_config>
+
+  <theme>
+    <name>Nordic-Polar</name>
+    <cornerRadius>8</cornerRadius>
+    <font name="sans" size="10" />
+  </theme>
+  <desktops number="4">
+    <names>
+      <name>1</name>
+      <name>2</name>
+      <name>3</name>
+      <name>4</name>
+    </names>
+    <popupTime>1000</popupTime>
+  </desktops>
+
+  <windowRules>
+    <windowRule identifier="foot" serverSideDecoration="yes">
+      <action name="Maximize" />
+    </windowRule>
+  </windowRules>
+
+  <keyboard>
+    <keybind key="W-q">
+      <action name="Close" />
+    </keybind>
+    <keybind key="W-S-q">
+      <action name="Execute" command="sh -c $HOME/.local/bin/powermenu" />
+    </keybind>
+    <keybind key="W-space">
+      <action name="Execute" command="foot" />
+    </keybind>
+    <keybind key="W-r">
+      <action name="Execute" command="fuzzel" />
+    </keybind>
+    <keybind key="W-w">
+      <action name="Execute" command="chromium" />
+    </keybind>
+    <keybind key="W-Left">
+      <action name="SnapToEdge" direction="left" combine="yes" />
+    </keybind>
+    <keybind key="W-Right">
+      <action name="SnapToEdge" direction="right" combine="yes" />
+    </keybind>
+    <keybind key="W-Up">
+      <action name="ToggleMaximize" />
+    </keybind>
+    <keybind key="W-Down">
+      <action name="Iconify" />
+    </keybind>
+    <keybind key="W-d">
+      <action name="Execute" command="sh -c $HOME/.local/bin/toggledesktop" />
+    </keybind>
+    <keybind key="W-l">
+      <action name="Execute" command="swaylock -f -c 000000" />
+    </keybind>
+    <keybind key="W-f">
+      <action name="ToggleFullscreen" />
+    </keybind>
+    <keybind key="W-S-Left">
+      <action name="SendToDesktop" to="left" wrap="yes" follow="no" />
+    </keybind>
+    <keybind key="W-S-Right">
+      <action name="SendToDesktop" to="right" wrap="yes" follow="no" />
+    </keybind>
+    <keybind key="W-Page_Up">
+      <action name="GoToDesktop" to="left" wrap="yes" />
+    </keybind>
+    <keybind key="W-Page_Down">
+      <action name="GoToDesktop" to="right" wrap="yes" />
+    </keybind>
+    <keybind key="W-1">
+      <action name="GoToDesktop" to="1" />
+    </keybind>
+    <keybind key="W-2">
+      <action name="GoToDesktop" to="2" />
+    </keybind>
+    <keybind key="W-3">
+      <action name="GoToDesktop" to="3" />
+    </keybind>
+    <keybind key="W-4">
+      <action name="GoToDesktop" to="4" />
+    </keybind>
+    <keybind key="W-S-1">
+      <action name="SendToDesktop" to="1" follow="no" />
+    </keybind>
+    <keybind key="W-S-2">
+      <action name="SendToDesktop" to="2" follow="no" />
+    </keybind>
+    <keybind key="W-S-3">
+      <action name="SendToDesktop" to="3" follow="no" />
+    </keybind>
+    <keybind key="W-S-4">
+      <action name="SendToDesktop" to="4" follow="no" />
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute" command="swayosd-client --output-volume raise" />
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute" command="swayosd-client --output-volume lower" />
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute" command="swayosd-client --output-volume mute-toggle" />
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute" command="swayosd-client --brightness raise" />
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute" command="swayosd-client --brightness lower" />
+    </keybind>
+    <keybind key="Caps_Lock">
+      <action name="Execute" command="swayosd-client --caps-lock" />
+    </keybind>
+    <keybind key="A-Tab">
+      <action name="NextWindow" /> 
+    </keybind>
+    <keybind key="A-S-Tab">
+      <action name="PreviousWindow" />
+    </keybind>
+    <keybind key="W-j">
+      <action name="NextWindow" /> 
+    </keybind>
+    <keybind key="W-k">
+      <action name="PreviousWindow" />
+    </keybind>
+  </keyboard>
+
+  <libinput>
+    <device category="touchpad">
+      <naturalScroll>yes</naturalScroll>
+      <tap>yes</tap>
+    </device>
+  </libinput>
+
+</labwc_config>

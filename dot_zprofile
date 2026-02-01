@@ -1,0 +1,26 @@
+# ~/.zprofile
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export VIMINIT='source ~/.config/vim/vimrc'
+PULSE_DIR="/tmp/$( whoami )-pulse"
+mkdir -p $PULSE_DIR && chmod 700 $PULSE_DIR
+export PULSE_CONFIG_PATH=$PULSE_DIR
+export PULSE_STATE_PATH=$PULSE_DIR
+# Define a volatile runtime directory
+export PULSE_RUNTIME_PATH="/run/user/$(id -u)/pulse"
+# Explicitly move the cookie away from ~
+export PULSE_COOKIE="$XDG_CONFIG_HOME/pulse/cookie"
+
+# Optional: If you want EVERYTHING in tmp (will require re-auth on reboot)
+# export PULSE_COOKIE="/tmp/$(whoami)-pulse-cookie"
+
+export ZDOTDIR="$HOME/.config/zsh"
+[[ -f "$ZDOTDIR/.zshrc" ]] && . "$ZDOTDIR/.zshrc"
+
+# Auto-start Labwc on TTY1
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+    labwc > /dev/null 2>&1
+fi

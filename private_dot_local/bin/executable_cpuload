@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Calculate CPU load (100 - idle percentage)
+CPU_LOAD=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}' | cut -d. -f1)
+
+# Get CPU Temperature from sysfs (standard path for most Ryzen Zenbooks)
+# If this returns empty, try: /sys/class/thermal/thermal_zone0/temp
+TEMP_RAW=$(cat /sys/class/thermal/thermal_zone0/temp 2>/dev/null || echo 0)
+CPU_TEMP=$((TEMP_RAW / 1000))
+
+# Format the output as JSON for Waybar
+# Using your Nordic-Polar style:  for CPU,  for Temp
+printf '{"text": " %s%%  %s°C", "tooltip": "CPU Load: %s%%\\nTemperature: %s°C", "class": "cpu-custom"}\n' \
+    "$CPU_LOAD" "$CPU_TEMP" "$CPU_LOAD" "$CPU_TEMP"

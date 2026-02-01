@@ -1,0 +1,134 @@
+# Enable colors and change prompt:
+autoload -U colors && colors
+
+setopt PROMPT_SUBST
+
+# Git branch detection (Fast, built-in)
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats ' -> %b'
+precmd() { vcs_info }
+
+# %F{4} is Blue, %F{208} is Tangerine Orange (Matches your CPU widget!)
+#PROMPT='%F{4}%n@%m [%~%F{208}${vcs_info_msg_0_}%f%F{4}]%f %# '
+PROMPT='%n@%m %B%F{12}[%~%F{11}${vcs_info_msg_0_}%f%F{12}]%b%f %# '
+
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HISTFILE=~/.cache/zsh/history
+
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+export EDITOR='nvim'
+export VISUAL='nvim'
+
+# Define the new path (using your XDG_CACHE_HOME)
+export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
+
+# Tell compinit to use that specific path
+autoload -U compinit
+compinit -d "$ZSH_COMPDUMP"
+
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots) #include hidden files
+
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
+# Use vi keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# Change cursor shape for different vi modes
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+    [[ $1 = 'block' ]]; then
+      echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+    [[ ${KEYMAP} == viins ]] ||
+    [[ ${KEYMAP} == '' ]] ||
+    [[ $1 == 'beam' ]]; then
+      echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+  zle -K viins # initiate `vi insert` as keymap
+  echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Beam cursor on startup
+preexec() { echo -ne '\e[5 q' ;} # Beam cursor for new prompts
+
+# Use lf to switch directories and bind it to ctrl-o
+lfcd() {
+  tmp="$(mktemp)"
+  lf -last-dir-path="$tmp" "$@"
+  if [ -f "$tmp" ]; then
+    dir="$(cat "$tmp")"
+    rm -f "$tmp"
+    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+  fi
+}
+bindkey -s '^o' 'lfcd\n'
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+# Load aliases and shortcuts
+#[ -f "$XDG_CONFIG_DIR/shortcutrc" ] && source "$XDG_CONFIG_DIR/shortcutrc"
+#[ -f "$XDG_CONFIG_DIR/aliasrc" ] && source "$XDG_CONFIG_DIR/aliasrc"
+
+alias tree='tree --gitignore'
+alias ls='ls --color=auto'
+alias grep='grep --color'
+alias less='less -Qr'
+alias man='man -P "less -Qr"'
+alias ..='cd ..'
+alias vim='nvim'
+
+# System Management
+alias pacman='sudo pacman'
+alias update='yay -Syu'
+alias mount='sudo mount'
+alias umount='sudo umount'
+alias service='sudo systemctl'
+alias uservice='systemctl --user'
+#alias retail='sudo systemctl restart tailscaled'
+#alias tailstat='systemctl status tailscaled'
+
+function compvid() {
+    ffmpeg -i "$1" -c:v libx265 -crf 28 -c:a aac -strict experimental -b:a 96k "$2"
+}
+
+function chezconf() {
+    nvim "$1" && chezmoi add "$1" 2>/dev/null
+}
+
+# Chezmoi & Configs (Updated for Labwc)
+alias chezstat='cd $HOME/.local/share/chezmoi && git status; cd $HOME'
+alias cfzsh='chezconf $ZDOTDIR/zshrc; source $ZDOTDIR/zshrc'
+alias rebar='pkill waybar; labwc --cmd "Execute waybar"' # Labwc way to restart
+alias cfbar='chezconf $HOME/.config/waybar/config && rebar'
+alias cflab='chezconf $HOME/.config/labwc/rc.xml'
+alias cdvim='cd $HOME/.config/nvim'
+
+
+if [[ -z "$TMUX" && $- == *i* ]]; then
+    if tmux has-session 2>/dev/null; then
+        tmux attach-session
+    else
+        tmux new-session
+    fi
+fi
+
+# Load zsh-syntax-highlighting (must be last)
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
