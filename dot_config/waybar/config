@@ -35,7 +35,7 @@
     "custom/power": {
         "format": "⏻ ",
         "tooltip": false,
-	"menu": "on-click",
+        "menu": "on-click",
 	"menu-file": "$HOME/.config/waybar/power_menu.xml",
 	"menu-actions": {
           "lock": "swaylock -f -c 000000",
@@ -76,6 +76,7 @@
     "network": {
       "format-wifi": "  {signalStrength}%",
       "format-ethernet": "🔌 Eth",
+      "on-click": "foot -e nmtui",
       "tooltip-format": "{ifname} via {gwaddr}"
     },
     "battery": {
