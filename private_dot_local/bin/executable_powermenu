@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Define the options
+SELECTION=$(echo -e " Shutdown\n Reboot\n Suspend\n Lock\n Logout" | \
+    fuzzel --dmenu -p "🔌 " --lines 5 --width 15 --index)
+
+case $SELECTION in
+    0) systemctl poweroff ;;
+    1) systemctl reboot ;;
+    2) systemctl suspend ;;
+    3) swaylock ;; # Or your preferred locker
+    4) labwc --exit ;;
+esac

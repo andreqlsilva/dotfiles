@@ -1,0 +1,8 @@
+#!/bin/sh
+# Get AMD GPU load and temp from sysfs
+load=$(cat /sys/class/drm/card1/device/gpu_busy_percent 2>/dev/null || echo 0)
+temp=$(cat /sys/class/drm/card1/device/hwmon/hwmon*/temp1_input | head -n 1)
+temp_c=$((temp / 1000))
+
+# Output JSON for Waybar
+echo "{\"text\": \"󰢮 ${load}% ${temp_c}°C\", \"tooltip\": \"GPU Load: ${load}%\\nGPU Temp: ${temp_c}°C\"}"
