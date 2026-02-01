@@ -5,7 +5,7 @@
     "spacing": 4,
 
     // The Layout
-    "modules-left": ["custom/launcher", "tray", "wlr/workspaces", "wlr/taskbar"],
+    "modules-left": ["custom/launcher", "tray", "workspaces", "wlr/taskbar"],
     "modules-center": ["clock"],
     "modules-right": ["custom/cpu", "custom/gpu", "network", "pulseaudio", "battery", "custom/power"],
 
@@ -17,7 +17,7 @@
     },
 
     // 2. Workspaces (The Stable Version)
-    "wlr/workspaces": {
+    "workspaces": {
         "on-click": "activate",
         "format": "{name}",
         "all-outputs": true
