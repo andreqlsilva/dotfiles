@@ -19,10 +19,9 @@
     <windowRule identifier="foot" serverSideDecoration="yes">
       <action name="Maximize" />
     </windowRule>
-    <windowRule title="nmtui">
+    <windowRule title="wifi-tui">
       <action name="MoveToCenter" />
-      <action name="Resize" width="600" height="400" />
-      <action name="SnapToEdge" edge="top" />
+      <action name="Resize" width="480" height="320" />
     </windowRule>
   </windowRules>
 
