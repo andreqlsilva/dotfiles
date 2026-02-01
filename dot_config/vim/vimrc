@@ -1,0 +1,29 @@
+set viminfo=""
+" --- Basic Settings ---
+set nocompatible            " Use Vim defaults instead of Vi
+syntax on                   " Enable syntax highlighting
+filetype plugin indent on   " Load plugins and indent files
+
+" --- The Indentation Logic ---
+set tabstop=2               " Number of spaces a <Tab> counts for
+set shiftwidth=2            " Number of spaces for auto-indent
+set expandtab               " Convert tabs to spaces (Suckless standard)
+set softtabstop=2           " Makes Backspace feel like tabs
+set autoindent              " Copy indent from current line
+set smartindent             " Even smarter auto-indenting
+
+" --- UI & Aesthetics ---
+set number                  " Show line numbers
+set relativenumber          " Easier for jumping (Vim-style)
+set termguicolors           " Full color support for your Zenbook OLED
+set cursorline              " Highlight the current line
+set showmode                " Show whether in Insert, Visual, etc.
+
+" --- Nordic Polish ---
+" Map your search highlight to your Luminous Green/Orange
+highlight Search ctermbg=Yellow ctermfg=Black
+highlight IncSearch ctermbg=Green ctermfg=Black
+
+" --- Keybindings ---
+let mapleader = " "         " Space as leader key
+nnoremap <leader>w :w<cr>   " Quick save
