@@ -22,6 +22,10 @@
   </windowRules>
 
   <keyboard>
+    <layout>
+      <main>us</main>
+      <variant>intl</variant>
+    </layout>
     <keybind key="W-q">
       <action name="Close" />
     </keybind>
