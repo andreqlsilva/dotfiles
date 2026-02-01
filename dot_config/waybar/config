@@ -7,7 +7,7 @@
     // The Layout
     "modules-left": ["custom/launcher", "tray", "workspaces", "wlr/taskbar"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/cpu", "custom/gpu", "network", "pulseaudio", "battery", "custom/power"],
+    "modules-right": ["custom/cpu", "custom/gpu", "network", "bluetooth", "pulseaudio", "battery", "custom/power"],
 
     // 1. The Corner (Start Menu) -> Launches Fuzzel
     "custom/launcher": {
