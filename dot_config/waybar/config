@@ -77,7 +77,6 @@
       "format-wifi": "  {signalStrength}%",
       "format-ethernet": "🖧 Eth",
       "format-disconnected": "󰤮 Offline",
-      "interface": "wlan0",
       "on-click": "foot --title='wifi-tui' -e impala",
       "tooltip-format": "{ifname} via {gwaddr}"
     },
