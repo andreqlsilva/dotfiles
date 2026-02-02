@@ -37,10 +37,10 @@
     <keybind key="W-S-q">
       <action name="Execute" command="sh -c $HOME/.local/bin/powermenu" />
     </keybind>
-    <keybind key="W-space">
+    <keybind key="W-t">
       <action name="Execute" command="foot -e tmux" />
     </keybind>
-    <keybind key="W-t">
+    <keybind key="W-space">
       <action name="Execute" command="foot" />
     </keybind>
     <keybind key="W-r">
