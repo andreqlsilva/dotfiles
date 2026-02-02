@@ -38,11 +38,8 @@
     <keybind key="W-space">
       <action name="Execute" command="foot" />
     </keybind>
-    <keybind key="Super_L" onRelease="yes">
-      <action name="Execute" command="sh -c $HOME/.local/bin/launcher" />
-    </keybind>
     <keybind key="W-r">
-      <action name="Execute" command="sh -c $HOME/.local/bin/runcmd" />
+      <action name="Execute" command="sh -c $HOME/.local/bin/launcher" />
     </keybind>
     <keybind key="W-S-r">
       <action name="Execute" command="sh -c $HOME/.local/bin/refresh" />
