@@ -8,20 +8,30 @@ fi
 
 # 2. Define your curated list: "Display Name|Command"
 # Add your notary scripts, TUIs, and browsers here.
-declare -a menu=(
-    " Terminal|foot"
-    "󰈹 Chromium|chromium"
-    "󰂓 Bluetooth|foot --title=bluetooth-tui -e bluetui"
-    "󰖩 Wireless|foot --title=wifi-tui -e impala"
-    "󰏓 File Manager|foot -e yazi"
+declare -A apps=(
+  [" Terminal"]="foot"
+  ["󰈹 Web browser"]="chromium"
+  ["󰏓 File manager"]="foot -e yazi"
+  ["󰖩 Network"]="foot --title=wifi-tui -e impala"
+  [" Bluetooth"]="foot --title=bluetooth-tui -e bluetui"
 )
 
-# 3. Join the display names with newlines
-choice=$(printf "%s\n" "${menu[@]}" | cut -d'|' -f1 | fuzzel --dmenu --prompt="Search: ")
+# 3. Launch Fuzzel and capture the input
+selection=$(printf "%s\n" "${!apps[@]}" | fuzzel --dmenu --prompt="Run: ")
 
-# 4. If a choice was made, find the command and execute it
-if [ -n "$choice" ]; then
-    # Extract the command part after the '|'
-    cmd=$(printf "%s\n" "${menu[@]}" | grep "^$choice|" | cut -d'|' -f2)
-    eval "$cmd &"
+# 4. If selection is empty (user hit Escape), exit
+if [ -z "$selection" ]; then
+    exit 0
 fi
+
+# 5. Logic: Is the selection a key in our array?
+if [[ -n "${apps[$selection]}" ]]; then
+    # It's a label! Get the corresponding command
+    cmd="${apps[$selection]}"
+else
+    # It's not a label! Treat it as a raw command
+    cmd="$selection"
+fi
+
+# 6. Execute
+eval "$cmd &"
