@@ -23,6 +23,8 @@ export PULSE_COOKIE="$XDG_CONFIG_HOME/pulse/cookie"
 export ZDOTDIR="$HOME/.config/zsh"
 [[ -f "$ZDOTDIR/.zshrc" ]] && . "$ZDOTDIR/.zshrc"
 
+export PATH="${PATH}:$HOME/.local/bin"
+
 # Auto-start Labwc on TTY1
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
     labwc > /dev/null 2>&1
