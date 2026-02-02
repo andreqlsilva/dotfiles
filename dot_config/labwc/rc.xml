@@ -42,7 +42,7 @@
       <action name="Execute" command="fuzzel" />
     </keybind>
     <keybind key="W-r">
-      <action name="Execute" command="sh -c $(fuzzel --dmenu --prompt='Run: ')" />
+      <action name="Execute" command="sh -c $HOME/.local/bin/runcmd" />
     </keybind>
     <keybind key="W-S-r">
       <action name="Execute" command="sh -c $HOME/.local/bin/refresh" />
