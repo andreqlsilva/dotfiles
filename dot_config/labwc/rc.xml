@@ -46,6 +46,9 @@
     <keybind key="W-r">
       <action name="Execute" command="fuzzel" />
     </keybind>
+    <keybind key="W-S-r">
+      <action name="Execute" command="sh -c $HOME/.local/bin/refresh" />
+    </keybind>
     <keybind key="W-w">
       <action name="Execute" command="chromium" />
     </keybind>
