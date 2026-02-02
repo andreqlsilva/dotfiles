@@ -5,7 +5,7 @@
     "spacing": 4,
 
     // The Layout
-    "modules-left": ["custom/launcher", "tray", "workspaces", "wlr/taskbar"],
+    "modules-left": ["custom/launcher", "tray", "wlr/taskbar"],
     "modules-center": ["clock"],
     "modules-right": ["custom/cpu", "custom/gpu", "network", "bluetooth", "pulseaudio", "battery", "custom/power"],
 
@@ -16,14 +16,7 @@
         "tooltip": false
     },
 
-    // 2. Workspaces (The Stable Version)
-    "workspaces": {
-        "on-click": "activate",
-        "format": "{name}",
-        "all-outputs": true
-    },
-    
-    // 3. Taskbar (Open Windows)
+    // 2. Taskbar (Open Windows)
     "wlr/taskbar": {
         "format": "{icon}",
         "on-click": "activate",
@@ -31,7 +24,7 @@
         "tooltip-format": "{title}"
     },
 
-    // 4. Power Button -> Locks screen
+    // 3. Power Button -> Locks screen
     "custom/power": {
         "format": "⏻ ",
         "tooltip": false,
