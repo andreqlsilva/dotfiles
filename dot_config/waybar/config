@@ -78,7 +78,7 @@
       "format-ethernet": "🖧 Eth",
       "format-linked": "  Connecting...",
       "format-disconnected": "󰤮 Offline",
-      "on-click": "foot --title='wifi-tui' -e impala",
+      "on-click": "foot --title=wifi-tui -e impala",
       "tooltip-format": "{ifname} via {gwaddr}"
     },
     "bluetooth": {
@@ -88,7 +88,7 @@
       "tooltip-format": "{num_connections} connected",
       "tooltip-format-connected": "{device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias} ({device_battery_percentage}%)",
-      "on-click": "foot --title='bluetooth-tui' -e bluetui"
+      "on-click": "foot --title=bluetooth-tui -e bluetui"
     },
     "battery": {
       "states": { "warning": 30, "critical": 15 },
