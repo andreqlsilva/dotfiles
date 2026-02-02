@@ -44,7 +44,7 @@
       <action name="Execute" command="foot" />
     </keybind>
     <keybind key="W-r">
-      <action name="Execute" command="fuzzel --mode=run --title='Run command'" />
+      <action name="Execute" command="fuzzel --dmenu --title='Run command'" />
     </keybind>
     <keybind key="W-w">
       <action name="Execute" command="chromium" />
