@@ -25,6 +25,15 @@ export VISUAL='nvim'
 # Define the new path (using your XDG_CACHE_HOME)
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
 
+# Manage ssh-agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [ ! -f "$SSH_AUTH_SOCK" ]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
+
 # Tell compinit to use that specific path
 autoload -U compinit
 compinit -d "$ZSH_COMPDUMP"
