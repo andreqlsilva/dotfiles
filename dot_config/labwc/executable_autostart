@@ -11,5 +11,11 @@ waybar --log-level off &
 ##swaybg -c "#1a1b26" &
 swaybg -i ~/media/zencold.png &
 
+# Initialize GNOME Keyring and SSH Agent
+export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+
+# Optional: Ensure SSH knows which socket to use
+export SSH_AUTH_SOCK
+
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
