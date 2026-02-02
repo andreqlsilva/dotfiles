@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Usage: vol-osd +5% or -5%
+pactl set-sink-volume @DEFAULT_SINK@ "$1"
+
+# 2. Get the new volume level (strip everything but the number)
+VOL=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -n 1)
+
+# 3. Determine the icon based on the active device
+if pactl get-default-sink | grep -qi "bluez"; then
+    ICON="bluetooth"
+else
+    ICON="audio-speakers"
+fi
+
+# 4. Use SwayOSD's custom-progress to show the bar with our specific icon
+swayosd-client --custom-progress $(awk "BEGIN {print $VOL/100}") --custom-icon "$ICON" 
