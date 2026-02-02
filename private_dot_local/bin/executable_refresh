@@ -1,0 +1,4 @@
+#!/bin/sh
+labwc --reconfigure
+killall waybar
+waybar &
