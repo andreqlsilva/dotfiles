@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# 1. If fuzzel is already open, kill it and exit
+if pgrep -x "fuzzel" > /dev/null; then
+    pkill -x "fuzzel"
+    exit 0
+fi
+
+# 2. Define your curated list: "Display Name|Command"
+# Add your notary scripts, TUIs, and browsers here.
+declare -a menu=(
+    " Terminal|foot"
+    "󰈹 Chromium|chromium"
+    "󰂓 Bluetooth|foot --title=bluetooth-tui -e bluetui"
+    "󰖩 Wireless|foot --title=wifi-tui -e impala"
+    "󰏓 File Manager|foot -e yazi"
+)
+
+# 3. Join the display names with newlines
+choice=$(printf "%s\n" "${menu[@]}" | cut -d'|' -f1 | fuzzel --dmenu --prompt="Search: ")
+
+# 4. If a choice was made, find the command and execute it
+if [ -n "$choice" ]; then
+    # Extract the command part after the '|'
+    cmd=$(printf "%s\n" "${menu[@]}" | grep "^$choice|" | cut -d'|' -f2)
+    eval "$cmd &"
+fi
