@@ -1,0 +1,10 @@
+#!/bin/sh
+CMD=$(fuzzel --dmenu --prompt="Run: ")
+
+# Execute it if it's not empty
+if [ -z "$CMD" ]; then
+    exit 0
+fi
+
+# Use 'eval' to handle any flags or arguments
+eval "$CMD &"
