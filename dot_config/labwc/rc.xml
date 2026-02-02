@@ -19,11 +19,6 @@
     <windowRule title="foot">
       <action name="Maximize" />
     </windowRule>
-    <windowRule title="*-tui">
-      <action name="Maximized" value="no" />
-      <action name="MoveToCenter" />
-      <action name="Resize" width="480" height="320" />
-    </windowRule>
   </windowRules>
 
 <keyboard>
