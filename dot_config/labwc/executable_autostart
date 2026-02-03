@@ -8,8 +8,8 @@ kanshi &
 swayosd-server &
 waybar --log-level off &
 
-##swaybg -c "#1a1b26" &
-swaybg -i ~/media/zencold.png &
+swaybg -c "#1a1b26" &
+#swaybg -i ~/media/zencold.png &
 
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
