@@ -91,6 +91,19 @@ bindkey -s '^o' 'lfcd\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# Use '[[ -n ... ]]' to check if the capability exists in your terminfo
+[[ -n "${terminfo[khome]}" ]] && bindkey -M viins "${terminfo[khome]}" beginning-of-line
+[[ -n "${terminfo[kend]}" ]]  && bindkey -M viins "${terminfo[kend]}"  end-of-line
+[[ -n "${terminfo[kdch1]}" ]] && bindkey -M viins "${terminfo[kdch1]}" delete-char
+
+# Ensure these also work in Command Mode (vicmd)
+[[ -n "${terminfo[khome]}" ]] && bindkey -M vicmd "${terminfo[khome]}" beginning-of-line
+[[ -n "${terminfo[kend]}" ]]  && bindkey -M vicmd "${terminfo[kend]}"  end-of-line
+
+# Optional: Fix PageUp/PageDown (Search history)
+[[ -n "${terminfo[kpp]}" ]] && bindkey -M viins "${terminfo[kpp]}" up-line-or-history
+[[ -n "${terminfo[knp]}" ]] && bindkey -M viins "${terminfo[knp]}" down-line-or-history
+
 # Load aliases and shortcuts
 #[ -f "$XDG_CONFIG_DIR/shortcutrc" ] && source "$XDG_CONFIG_DIR/shortcutrc"
 #[ -f "$XDG_CONFIG_DIR/aliasrc" ] && source "$XDG_CONFIG_DIR/aliasrc"
