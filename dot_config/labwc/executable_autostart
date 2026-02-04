@@ -1,3 +1,5 @@
+#!/bin/sh
+
 swayidle -w \
   timeout 300 'wlopm --off *' resume 'wlopm --on *' \
   timeout 600 'swaylock -f -c 000000' \
@@ -8,7 +10,12 @@ kanshi &
 swayosd-server &
 waybar --log-level off &
 
-{ swaybg -i ~/media/zencold.png & || swaybg -c "#1a1b26"; } &
+background_image="$HOME/media/zencold.png"
+if [ -f "$background_image" ]; then
+  swaybg -i "$background_image" -m fill &
+else
+  swaybg -c "#1a1b26" &
+fi
 
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
