@@ -91,6 +91,15 @@ bindkey -s '^o' 'lfcd\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# This covers Home, End, and Delete for Foot/xterm
+bindkey -M viins '^[[H' beginning-of-line
+bindkey -M viins '^[[F' end-of-line
+#bindkey -M viins '^[[3~' delete-char
+
+# Optional: Fix the History Search for PageUp/PageDown
+bindkey -M viins '^[[5~' up-line-or-history
+bindkey -M viins '^[[6~' down-line-or-history
+
 # These map the Foot/xterm sequences to ZLE widgets
 bindkey -M vicmd '^[[H'  beginning-of-line      # Home
 bindkey -M vicmd '^[[F'  end-of-line            # End
