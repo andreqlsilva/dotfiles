@@ -6,6 +6,8 @@ swayidle -w \
   before-sleep 'swaylock -f -c 000000' &
 
 libinput-gestures-setup start &
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
 kanshi &
 swayosd-server &
 waybar --log-level off &
