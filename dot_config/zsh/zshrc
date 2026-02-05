@@ -150,6 +150,7 @@ alias cfbar='chezconf $HOME/.config/waybar/config && rebar'
 alias cffuz='chezconf $HOME/.config/fuzzel/fuzzel.ini'
 alias relab='labwc --reconfigure'
 alias cfwm='chezconf $HOME/.config/labwc/rc.xml && relab'
+alias cfauto='chezconf $HOME/.config/labwc/autostart'
 alias cdvim='cd $HOME/.config/nvim'
 
 
