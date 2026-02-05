@@ -142,6 +142,7 @@ function chezconf() {
 
 # Chezmoi & Configs (Updated for Labwc)
 alias chezstat='cd $HOME/.local/share/chezmoi && git status; cd $HOME'
+alias chezstat='cd $HOME/.local/share/chezmoi && git log; cd $HOME'
 alias chezpush='chezmoi re-add'
 alias chezpull='chezmoi update'
 alias cfzsh='chezconf $ZDOTDIR/zshrc; source $ZDOTDIR/zshrc'
