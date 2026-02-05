@@ -26,6 +26,7 @@ vim.opt.scrolloff = 1
 vim.opt.sidescrolloff = 5
 vim.opt.tabpagemax = 10
 vim.opt.history = 1000
+vim.opt.clipboard = "unnamedplus"
 
 -- Folding
 --vim.opt.foldmethod = "expr"
