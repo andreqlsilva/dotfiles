@@ -48,7 +48,6 @@
     <keybind key="W-S-s">
       <action name="Execute" command="sh -c $HOME/.local/bin/scshot" />
     </keybind>
-    </keybind>
     <keybind key="Print">
       <action name="Execute" command="grim $HOME/captures/full-$(date +%s).png" />
     </keybind>
