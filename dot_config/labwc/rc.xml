@@ -38,6 +38,9 @@
     <keybind key="W-space">
       <action name="Execute" command="foot" />
     </keybind>
+    <keybind key="W-e">
+      <action name="Execute" command="foot -e yazi" />
+    </keybind>
     <keybind key="W-r">
       <action name="Execute" command="sh -c 'XDG_DATA_DIRS=/home/andre/.local/opt/share fuzzel'" />
     </keybind>
