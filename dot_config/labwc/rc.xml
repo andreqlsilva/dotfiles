@@ -146,12 +146,11 @@
   </keyboard>
 
   <libinput>
-    <device category="touchpad">
-      <naturalScroll>yes</naturalScroll>
-      <tap>yes</tap>
-      <click_method>clickfinger</click_method>
-      <middle_emulation>no</middle_emulation>
-      <tap>yes</tap>
+  <device category="touchpad">
+    <naturalScroll>yes</naturalScroll>
+    <tap>yes</tap>
+    <clickMethod>clickfinger</clickMethod>
+    <middleEmulation>no</middleEmulation>
   </device>
 </libinput>
 
