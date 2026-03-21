@@ -149,8 +149,8 @@
   <device category="touchpad">
     <naturalScroll>yes</naturalScroll>
     <tap>yes</tap>
-    <clickMethod>clickfinger</clickMethod>
-    <middleEmulation>no</middleEmulation>
+    <clickMethod>button-areas</clickMethod>
+    <middleEmulation>yes</middleEmulation>
   </device>
 </libinput>
 
