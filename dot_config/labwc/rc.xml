@@ -22,8 +22,7 @@
   </windowRules>
 
 <keyboard>
-    <layout>
-      <main>us</main>
+
       <variant>intl</variant>
     </layout>
     <keybind key="W-q">
@@ -55,6 +54,9 @@
     </keybind>
     <keybind key="W-w">
       <action name="Execute" command="chromium" />
+    </keybind>
+    <keybind key="W-c">
+      <action name="Execute" command="xfreerdp /v:cartuno /u:escrevente /d:" />
     </keybind>
     <keybind key="W-Left">
       <action name="SnapToEdge" direction="left" combine="yes" />
